@@ -2,6 +2,9 @@
 // use Composer autoloader
 require 'vendor/autoload.php';
 
+// load config file with OAuth secret
+require 'config.php';
+
 // load classes
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,8 +29,8 @@ $config["hybridauth"]  = array(
   "Google" => array (
     "enabled" => true,
     "keys" => array (
-      "id" => "YOUR_CLIENT_ID", 
-      "secret" => "YOUR_CLIENT_SECRET" 
+      "id" => $oauth_id, 
+      "secret" => $oauth_secret
     ),
     "scope" => "https://www.googleapis.com/auth/userinfo.email"
 )));

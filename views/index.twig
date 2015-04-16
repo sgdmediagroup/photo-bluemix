@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h4 class="pull-left">Photos for {{ uid }}</h4>
+        <div class="btn-group pull-right">
+          <a href="/logout" class="btn btn-primary">Log out</a>
+        </div>
+      </div>
+    </div>
+    
+    {% if containers|length > 0 %}
+    {% for c in containers %}
+    <div class="container">
+      <p class="clearfix">
+          <span class="btn btn-success"> {{ c.name }} <span class="badge">{{ c.objects|length }}</span></span>
+      </p>
+      <div class="clearfix">
+          <a href="{{ app.request.basepath }}/add" role="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-plus"></span> Add Photo</a>
+          <a href="{{ app.request.basepath }}/delete/{{ c.name|url_encode }}" role="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-exclamation-sign"></span> Delete Container</a>
+      </div>
+      <hr/>
+      {% for o in c.objects %}        
+      <ul class="list-group row clearfix">
+        <li class="list-group-item col-xs-3 clearfix" style="border:none"><img src="{{ o.url }}" class="img-responsive" /></li>
+        <li class="list-group-item col-xs-5 clearfix" style="border:none">
+          <p> {{ o.name }} </p>
+          <h6> {{ o.bytes }} bytes </h6>
+        </li>
+        <li class="list-group-item col-xs-4 clearfix" style="border:none">
+          <p>
+            <a href="{{ o.url }}" role="button" class="btn btn-primary btn-sm">View</a> <br/>
+          </p>
+          <p>
+            <a href="{{ app.request.basepath }}/delete/{{ c.name|url_encode }}/{{ o.name }}" role="button" class="btn btn-primary btn-sm">Delete</a>
+          </p>          
+        </li>
+      </ul>
+      <hr/>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="container">
+      <h4>No photos found.</h4>
+      <a href="{{ app.request.basepath }}/add" role="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> Add</a>
+    </div>
+    {% endif %}
+
+    <hr/>
+    <footer class="footer">
+      <div class="container">
+        <a href="{{ app.request.basepath }}/legal" role="button" class="btn btn-default btn-sm">Legal</a>
+      </div>
+    </footer>
+  
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>   
+  </body>
+</html>
+

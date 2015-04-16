@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h4 class="pull-left">Legal</h4>
+      </div>
+    </div>
+    
+    <div class="container">
+    <ul>
+      <li>This application is intended for demonstration purposes only and is provided without any warranties or safeguards. Users are hereby warned that they should not store any sensitive or confidential information within it. The application author takes no responsibility or liability for any data loss arising from usage of this application.</li>
+      <li>By using this application, you agree to be bound by Google's Terms of Service, available at <a href="https://www.google.com/intl/en/policies/terms">https://www.google.com/intl/en/policies/terms</a> and to comply with (and not knowingly violate) applicable law, regulation, and the above Terms of Service.</li>
+      <li>This application incorporates by reference the Google Privacy Policy, available at <a href="https://www.google.com/policies/privacy">https://www.google.com/policies/privacy</a>.</li>
+      <li>By using this application, you agree to defend, indemnify and hold harmless the application author, from and against all costs, charges and expenses (including attorneys' fees) arising from any third party claim, action, suit, or proceeding against any action by a third party against the application author.</li>
+    </ul>
+    You can delete all the data associated with your Google Account email address from this application using the link below.
+    <br/>
+    <a href="{{ app.request.basepath }}/delete-my-data" role="button" class="btn btn-default">Delete My Data!</a>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>   
+  </body>
+</html>
+
+

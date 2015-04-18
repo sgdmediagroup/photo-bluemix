@@ -4,7 +4,6 @@ This is a photo storage application backed by Bluemix Object Storage. It's built
 
 ## Getting Started
 
-* Download the code from [JazzHub](https://hub.jazz.net/project/vvaswani/photos). 
 * Update the Google OAuth client ID and secret in the index.php script with your own client ID and secret. 
 * Download dependencies with 'php composer.phar install'.
 

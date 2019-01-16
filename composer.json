@@ -3,7 +3,8 @@
         "silex/silex": "*",
         "twig/twig": "*",        
         "ibmjstart/zendservice-openstack": "dev-master",
-        "hybridauth/hybridauth": "2.*"
+        "hybridauth/hybridauth": "2.*",
+        "aws/aws-sdk-php-resources":"*"
     },
     "minimum-stability" : "dev",
     "prefer-stable": true

@@ -1,6 +1,6 @@
 ---
 applications:
-- name: photos
+- name: photos-bluemix
 memory: 256M
 instances: 1
 host: photos

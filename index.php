@@ -23,9 +23,9 @@ $config["storage"] = array(
 // use BlueMix VCAP_SERVICES environment 
 if ($services = getenv("VCAP_SERVICES")) {
   $services_json = json_decode($services, true);
-  $config["storage"]["service"]["url"] = $services_json["objectstorage"][0]["credentials"]["auth_uri"];
-  $config["storage"]["service"]["user"] = $services_json["objectstorage"][0]["credentials"]["username"];
-  $config["storage"]["service"]["key"] = $services_json["objectstorage"][0]["credentials"]["password"];
+  $config["storage"]["service"]["url"] = $services_json["objectstorage"][0]["credentials"]["endpoints"];
+  $config["storage"]["service"]["user"] = $services_json["objectstorage"][0]["credentials"]["iam_apikey_name"];
+  $config["storage"]["service"]["key"] = $services_json["objectstorage"][0]["credentials"]["api_key"];
   var_dump($services_json);
 } else {
   throw new Exception('Not in Bluemix environment');

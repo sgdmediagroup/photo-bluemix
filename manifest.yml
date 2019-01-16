@@ -3,5 +3,5 @@ applications:
 - name: photo-bluemix
 memory: 256M
 instances: 1
-host: photos
+host: photo-bluemix
 buildpack: https://github.com/dmikusa-pivotal/cf-php-build-pack.git

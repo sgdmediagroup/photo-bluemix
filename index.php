@@ -2,9 +2,6 @@
 // use Composer autoloader
 require 'vendor/autoload.php';
 
-// load config file with OAuth secret
-require 'config.php';
-
 // load classes
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,18 +19,6 @@ $config["storage"] = array(
   )
 );
 
-// ... for HybridAuth
-$config["hybridauth"]  = array(
-  "base_url" => "http://photos.mybluemix.net/callback",
-  "providers" => array (
-  "Google" => array (
-    "enabled" => true,
-    "keys" => array (
-      "id" => $oauth_id, 
-      "secret" => $oauth_secret
-    ),
-    "scope" => "https://www.googleapis.com/auth/userinfo.email"
-)));
 
 // use BlueMix VCAP_SERVICES environment 
 if ($services = getenv("VCAP_SERVICES")) {
@@ -41,6 +26,7 @@ if ($services = getenv("VCAP_SERVICES")) {
   $config["storage"]["service"]["url"] = $services_json["objectstorage"][0]["credentials"]["auth_uri"];
   $config["storage"]["service"]["user"] = $services_json["objectstorage"][0]["credentials"]["username"];
   $config["storage"]["service"]["key"] = $services_json["objectstorage"][0]["credentials"]["password"];
+  var_dump($services_json);
 } else {
   throw new Exception('Not in Bluemix environment');
 }
@@ -48,8 +34,6 @@ if ($services = getenv("VCAP_SERVICES")) {
 // start session
 session_start();
 
-// initialize HybridAuth client
-$auth = new Hybrid_Auth($config["hybridauth"]);
 
 // initialize Silex application
 $app = new Application();
